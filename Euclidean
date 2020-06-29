@@ -1,0 +1,85 @@
+package com.codegym.task.task14.task1420;
+
+/* 
+
+An algorithm used for finding the GCD of any two positive integers
+
+*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution {
+    public static void main(String[] args) throws Exception 
+    {
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+     
+        String input1 = reader.readLine();
+        String input2 = reader.readLine();
+        
+        int num;
+        int num2;
+        
+        try
+        {
+        
+            num = Integer.parseInt(input1);
+            num2 = Integer.parseInt(input2);
+            
+        }
+        catch(Exception e)
+        {
+            
+            /*
+            
+            Handle the exception somehow, but in this case, I wanted to display it.
+            
+            */
+            throw e;
+            
+        }
+        
+        int GCD = 1;
+        
+        if(num > 0 && num2 > 0)
+        {
+            
+            int out = num;
+            int under = num2;
+            int remainder;
+            
+            while(true)
+            {
+                
+                if(out == 0)
+                {
+                    
+                    GCD = under;
+                    break;
+                    
+                }
+                else if(under == 0)
+                {
+                    
+                    GCD = out;
+                    break;
+                    
+                }
+                
+                remainder = under % out;
+                under = out;
+                out = remainder;
+
+                
+            }
+            
+            System.out.println(GCD);
+            
+            
+        }
+        else
+            throw new Exception();
+        
+    }
+}
